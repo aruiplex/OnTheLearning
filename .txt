@@ -1,0 +1,6 @@
+#	Protocol	Host	Path	URL	Result	Method	Process	Client IP	Remote IP	Body Size	Caching	Content-Type	Time	Date	Duration	Comments
+6	6	HTTPS	api.xports.cn	/aisports-api/api/venue/queryVenueServices?apiKey=78d0f9e05a9e0605&timestamp=1615370421367&channelId=11&venueId=3205000001&centerId=32050000&sign=bbe316c2d986a5182c4323449f2ac660	https://api.xports.cn/aisports-api/api/venue/queryVenueServices?apiKey=78d0f9e05a9e0605&timestamp=1615370421367&channelId=11&venueId=3205000001&centerId=32050000&sign=bbe316c2d986a5182c4323449f2ac660	200	GET	wechatapp:19164	127.0.0.1	114.55.59.135	3576		application/json;charset=UTF-8	18:00:21.379	Wed Mar 10 2021 00:00:00 GMT+0800 (中国标准时间)	83	
+
+
+
+https://api.xports.cn/aisports-api/api/venue/queryVenueServices?apiKey=78d0f9e05a9e0605&timestamp=1615370421367&channelId=11&venueId=3205000001&centerId=32050000&sign=bbe316c2d986a5182c4323449f2ac660

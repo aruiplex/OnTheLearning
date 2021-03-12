@@ -16,10 +16,22 @@ import impl.TwoQueueStack;
 public class Main {
 
     public static void main(String[] args) {
+        // List<Integer> list = new ArrayList<>();
+        // list.add(1);
+        // list.add(2);
+        // list.add(3);
+        // list.add(5);
+        // list.add(4);
+        int[] l = {1,2,3,4,5,6,8};
 
-        String s0 = "hellow";
-        String s1 = new String("hellow");
-        System.out.println(s0.equals(s1));
+        // 从这开始
+        int max = 0;
+
+        for (int i = 0; i < l.length; i++) {
+            if () {
+                
+            }
+        }
     }
 }
 /**

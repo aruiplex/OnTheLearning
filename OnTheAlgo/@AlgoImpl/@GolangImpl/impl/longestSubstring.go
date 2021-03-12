@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 	"time"
+
+	"aruix.net/code/algo/tools"
 )
 
 // LongestSubstring leetcode 395
@@ -87,7 +89,7 @@ func LongestSubstring(s string, k int) int {
 	ss = strings.Split(s, ";")
 
 	for _, v := range ss {
-		maxLength = max(LongestSubstring(v, k), maxLength)
+		maxLength = tools.Max(LongestSubstring(v, k), maxLength)
 	}
 	return maxLength
 }
