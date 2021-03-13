@@ -1,4 +1,4 @@
-package impl;
+package com.aruix.impl;
 
 public class ConcatContain {
     public static int concatContain(String source, String target) {

@@ -1,4 +1,4 @@
-package impl;
+package com.aruix.impl;
 
 import java.util.LinkedList;
 import java.util.Queue;

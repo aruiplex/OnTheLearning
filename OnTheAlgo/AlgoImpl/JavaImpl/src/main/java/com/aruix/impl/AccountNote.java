@@ -1,9 +1,11 @@
-package Code.Algo.AccountNote.src;
+package com.aruix.impl;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
-public class App {
+public class AccountNote {
     public static void main(String[] args) {
         String words = "is 1000 and 2000 but 1000 -500";
         StringBuffer sb = new StringBuffer();
