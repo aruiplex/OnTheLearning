@@ -18,6 +18,17 @@ matchSwap(["ap", "bp", "cp", "aq", "cq", "bq"]) → ["aq", "bq", "cq", "ap", "cp
 
 */
 
+/*流程:
+
+题目要求:
+在首字母相同的情况下, 互换两个单词的位置.
+
+我的思路:
+按照首字母顺序, 放到一个数组里(list), 数组里存的是一个{单词string, 出现位置}的结构体,
+遍历一遍原数组, 在遍历中, 把每一个单词的首字母拿出来看看在 list 中存不存在, 不存在就把这个添加进去,
+存在的话, 就把原来的那个单词放在这个位置上, 并且从 list 中删掉.
+
+*/
 func matchSwap(arr []string) []string {
 	list := [26]wordAndIndex{}
 	ans := make([]string, len(arr))
