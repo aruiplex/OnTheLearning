@@ -1,7 +1,5 @@
 package impl
 
-import "golang.org/x/text/cases"
-
 /*
 
 227. 基本计算器 II
@@ -50,7 +48,7 @@ s 表示一个 有效表达式
 func calculate2(s string) int {
 	num := 0
 	preSign := '+'
-    stack := []byte{}
+	stack := []byte{}
 	for i := 0; i < len(s); i++ {
 		if isDigital(s[i]) {
 			num += num*10 + int(s[i]-'0')
@@ -58,14 +56,14 @@ func calculate2(s string) int {
 		if s[i] != ' ' && !isDigital(s[i]) {
 			switch preSign {
 			case '+':
-                stack = append(stack, s[i])
+				stack = append(stack, s[i])
 
-            case '-':
-                stack = append(stack, -s[i])
+			case '-':
+				stack = append(stack, -s[i])
 			}
 
-            case '*':
-                
+			// case '*':
+
 		}
 	}
 	return 0
