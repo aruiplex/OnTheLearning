@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
-
-	impl "aruix.net/code/algo/impl/everyDayProblems"
+	"unsafe"
 )
 
 func main() {
-	s := impl.ConstructorMyHashMap()
-	s.Put(3, 4)
-	s.Put(3, 5)
-	fmt.Println(s.Get(3))
+	a := make([]interface{}, 11)
+	var i interface{}
+	fmt.Println(unsafe.Sizeof(a))
+	fmt.Println(unsafe.Sizeof(i))
+	fmt.Println(&a)
+	fmt.Println(&i)
+	fmt.Println(i)
 }
