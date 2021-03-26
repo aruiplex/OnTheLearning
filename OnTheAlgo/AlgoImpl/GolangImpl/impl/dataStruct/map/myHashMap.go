@@ -103,6 +103,10 @@ func (this *MyHashMap) Remove(key int) {
 	}
 }
 
+func hash(key int) int {
+	return key % BASE
+}
+
 /**
  * Your MyHashMap object will be instantiated and called as such:
  * obj := Constructor();
