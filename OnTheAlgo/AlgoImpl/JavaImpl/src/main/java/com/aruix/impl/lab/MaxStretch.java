@@ -18,26 +18,5 @@ import java.util.List;
 
 /** 只想出来了 n^2 的解决方案 */
 public class MaxStretch {
-    public static class Node {
-        int value;
-        List<Integer> indexs;
-
-        Node(int value, int index) {
-            this.value = value;
-            this.indexs.add(index);
-        }
-
-        add(){
-
-        }
-    }
-
-    public int haha(int[] arr) {
-        List<Node> l = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            Node node = new Node(arr[i], i);
-        }
-        return 0;
-    }
 
 }

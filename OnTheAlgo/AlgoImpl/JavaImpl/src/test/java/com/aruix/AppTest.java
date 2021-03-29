@@ -1,8 +1,9 @@
 package com.aruix;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.HashSet;
+import com.aruix.impl.lab.week3.CheckSubstring;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,11 @@ public class AppTest {
 
         System.out.println("hello test world");
         assertTrue(false);
+    }
+
+    @Test
+    public void testCheckSubString() {
+        assertEquals(true, CheckSubstring.checkSubstring("ababaxxxaba", "aba", 3));
     }
 
 }
