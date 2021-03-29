@@ -43,11 +43,6 @@ type ListNode struct {
 
 */
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	dummyNode := &ListNode{Val: 0, Next: head}
 	pre := dummyNode
