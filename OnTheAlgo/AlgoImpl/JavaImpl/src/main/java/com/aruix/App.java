@@ -1,9 +1,11 @@
 package com.aruix;
 
-import java.util.HashMap;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.UUID;
 
-import com.aruix.impl.lab.week4.Mylist;
-import com.aruix.impl.lab.week4.Mylist.MyNode;
+import com.aruix.impl.People;
 
 /**
  * Hello world!
@@ -11,8 +13,6 @@ import com.aruix.impl.lab.week4.Mylist.MyNode;
  */
 public class App {
     public static void main(String[] args) {
-        Mylist l = new Mylist();
-        MyNode n2 = l.new MyNode(2, null);
-        MyNode n1 = l.new MyNode(1, n2);
+
     }
 }

@@ -50,10 +50,9 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 		pre = pre.Next
 	}
 	// 出来之后, pre会刚好停到 left 的左边
-	curr := pre.Next
+	// curr := pre.Next
 	for i := 0; i < right-left; i++ {
-		nxt := curr.Next
-
+		// nxt := curr.Next
 	}
 
 	return dummyNode.Next
