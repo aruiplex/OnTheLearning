@@ -3,7 +3,7 @@ package com.aruix;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.aruix.impl.lab.week3.CheckSubstring;
+import com.aruix.impl.lab.lab3.CheckSubstring;
 
 import org.junit.jupiter.api.Test;
 

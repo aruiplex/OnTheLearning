@@ -3,7 +3,7 @@ package com.aruix;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.aruix.impl.lab.week6.Vehicle.Vehicle;
+import com.aruix.impl.lab.lab6.Vehicle.Vehicle;
 
 import org.junit.jupiter.api.Test;
 

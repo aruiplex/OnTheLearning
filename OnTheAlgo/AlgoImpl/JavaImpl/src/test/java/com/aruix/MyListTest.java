@@ -2,7 +2,7 @@ package com.aruix;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.aruix.impl.lab.week4.MyList;
+import com.aruix.impl.lab.lab4.MyList;
 
 import org.junit.jupiter.api.Test;
 

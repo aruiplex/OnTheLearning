@@ -14,3 +14,4 @@ mvn archetype:generate -DgroupId=net.aruix \
 现代人谁这么写啊.
 
 但是maven在vscode中的插件很好用, 可以直接搜依赖.
+
