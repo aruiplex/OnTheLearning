@@ -1,6 +1,6 @@
 # Permission of linux
 
-
+use command `ls -l` to check the permission of file or dir.
 
 ```bash
 aruix@alinux:~/.ssh$ ls -l

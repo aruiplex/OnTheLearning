@@ -43,3 +43,7 @@ shortcut:
 reference:
 
 [1] https://unix.stackexchange.com/questions/159513/what-are-the-shells-control-and-redirection-operators
+
+[2] https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
+
+[3] good answer about redirect sign in linux: https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file

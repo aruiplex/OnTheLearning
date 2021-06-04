@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.aruix.impl.lab.Animal;
+import com.aruix.impl.lab.Dog;
+
 public class Main {
     public static boolean cmp(String str1, String str2) {
         Map<Character, Integer> m1 = new HashMap<>();
@@ -77,13 +80,10 @@ public class Main {
         // char a = 'a';
         // double ad = (double) a;
         // System.out.println(ad);
-        char text0 = 'a';
-        final char text1 = vowel0;
+        Animal a = new Dog();
+        Dog d = new Dog();
+        a.cool(d);
+        ;
 
-        String text2 = text1 + "eiou";
-        final String text3 = text2;
-
-        char[] text4 = new char[] { text0, 'e', 'i', 'o', 'u' };
-        final char[] text5 = text4;
     }
 }

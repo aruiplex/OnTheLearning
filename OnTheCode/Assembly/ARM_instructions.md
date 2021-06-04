@@ -202,18 +202,18 @@ int num;
 
 ---
 
-| Instructions    | Operation                       | Meaning                                                      |
-| --------------- | ------------------------------- | ------------------------------------------------------------ |
-| `DCD`           | 在内存中声明一个 *WORD*         |                                                              |
-| `EQU`           | 在内存中声明一个常量            |                                                              |
-| `FILL`          | 在内存中声明一个**空的** *WORD* |                                                              |
-|                 |                                 |                                                              |
-| `LDR Rd, [Rn]`  | 从内存中读取                    | 从 *Rn* 中得到的值当成指针, 把指针指向的内存里的值放进 *Rd*. |
-| `STR Rd, [Rn]`  | 把值存在内存中                  | 把 *Rd* 中的值存在 *Rn* 显示的内存地址中.                    |
-| `MOV Rd, Rn`    | 把内存里的东西直接放到 *Rd* 中. |                                                              |
-| `ADR r3, label` | 读取*label*                     | 把label的内存地址放在r3中                                    |
+| Instructions    | Operation                         | Meaning                                                      |
+| --------------- | --------------------------------- | ------------------------------------------------------------ |
+| `DCD`           | 在内存中声明一个 *WORD*           |                                                              |
+| `EQU`           | 在内存中声明一个常量              |                                                              |
+| `FILL`          | 在内存中声明一个**空的** *WORD*   |                                                              |
+|                 |                                   |                                                              |
+| `LDR Rd, [Rn]`  | 从内存中读取                      | 从 *Rn* 中得到的值当成指针, 把指针指向的内存里的值放进 *Rd*. |
+| `STR Rd, [Rn]`  | 把值存在内存中                    | 把 *Rd* 中的值存在 *Rn* 显示的内存地址中.                    |
+| `MOV Rd, Rn`    | 把 *Rn* 里的东西直接放到 *Rd* 中. |                                                              |
+| `ADR r3, label` | 读取*label*                       | 把label的内存地址放在r3中                                    |
 
-> ***[]*** 是间接取地址的的符号, 也就是把 *Rn* 中存的值当成指针.
+> ***[Rn]*** 是间接取地址的的符号, 也就是把 *Rn* 中存的值当成指针, 取出指针所指的东西.
 
 
 
@@ -241,13 +241,31 @@ int num;
 
 ---
 
-| Instructions          | Operation | Meaning                             |
-| --------------------- | --------- | ----------------------------------- |
-| `LDR r6, [r11, #12]`  | pre load  | 取出r11后面12bits的内存中的值       |
-| `LDR r6, [r11, #12]!` | pre load  | 先r11加上12, 之后取出r11内存中的值, |
-| `LDR r6, [r11], #12`  | post load | 先取出r11内存中的值, 后r11加上12,   |
+| Instructions          | Operation | Meaning                                                      |
+| --------------------- | --------- | ------------------------------------------------------------ |
+| `LDR r6, [r11, #12]`  | pre load  | 取出r11后面12bits的内存中的值, *r11没变*.                    |
+| `LDR r6, [r11, #12]!` | pre load  | 先r11加上12, 之后取出r11内存中的值, *r11变了*.               |
+| `LDR r6, [r11], #12`  | post load | 先取出r11内存中的值, 后r11加上12, *r11也是会变的*, 在post里面, 回写总是发生 |
 
 > 如果是 `LDRB` 就是以 bytes 为单位. 就不用以 4 为基准 
+
+
+
+> ***!*** 是会改变 register 的值, 让register在运算之后更新.专有名词叫做 "Register write-back".
+>
+> ```assembly
+> LDP X8, X2, [X0, #0x10]!
+> ```
+>
+> `X0` modified so that after the operation:
+>
+> ```assembly
+> X0 = X0 + 0x10
+> ```
+>
+> If you do not put the `!`, `X0` is not modified by the operation.
+>
+> 但是在 post load 的情况下, 回写是总是发生的.
 
 
 
@@ -339,10 +357,24 @@ Branch-mnemonics: 是每一个branch的label, 当条件符合的时候就会自�
 
 ---
 
-Ascending and descending stacks 升序栈与降序栈:
+Stack Classification
 
-1. 栈顶的位置大 -> 升序 ascending
-2. 栈顶的位置小 -> 降序 descenting
+1. Based on the direction of stack growth, *Ascending and descending stacks 升序栈与降序栈*:
+
+   1. Ascending Stack -When items are pushed on to the stack, the stack pointer is increasing. That means the stack grows towards higher address. 栈顶的位置大 -> 升序 ascending
+   2. Descending Stack -When items are pushed on to the stack, the stack pointer is decreasing. That means the stack is growing towards lower address. 栈顶的位置小 -> 降序 descanting. This type stack is often used.
+
+2. Based on where the stack pointer points to:
+
+   1. Empty Stack -Stack pointer points to the location in which the next/first item will be stored. e.g. A push will store the value, and increment the stack pointer for an Ascending Stack. 
+
+      > this means the stack pointer points the position has no thing 
+
+   2. Full Stack -Stack pointer points to the location in which the last item was stored. e.g. A pop will decrement the stack pointer and pull the value for an Ascending Stack.
+
+      > this means the stack pointer points the position has thing 
+
+
 
 在 *ARM7* 中两种都可以, 但是不要从一种转化成另一种.
 
@@ -376,6 +408,59 @@ LDMFD sp!, {pc}
 
 
 
+push and pop
+
+---
+
+| Instructions                          | Operation | Meaning |
+| ------------------------------------- | --------- | ------- |
+| `STM{addr_mode}{cond} Rn{!}, reglist` |           |         |
+| `LDM{addr_mode}{cond} Rn{!}, reglist` |           |         |
+|                                       |           |         |
+| `LDMIA sp!, reglist`                  | POP       |         |
+| `STMDB sp!, reglist`                  | PUSH      |         |
+|                                       |           |         |
+
+addr_mode can be: 
+
+1. `IA` Increment address After each transfer 
+2. `IB` Increment address Before each transfer 
+3. `DA` Decrement address After each transfer 
+4. `DB` Decrement address Before each transfer.
+
+`{!}` if ! is present, the final address is written back into Rn.
+
+`reglist` is a list of one or more registers to be loaded/saved
+
+
+
+```assembly
+		mov		r0, #1
+		mov		r1, #2
+		mov		r2, #3
+		mov		r3, #4
+		stmdb	sp!, {r0, r1, r2, r3}; 
+		;		same as the 5 lines below
+		;sub		sp, sp, #16
+		;str		r0, [sp]
+		;str		r1, [sp, #4]
+		;str		r2, [sp, #8]
+		;str		r3, [sp, #12]
+		
+		stmda	sp!, {r0, r1, r2, r3}
+		;		same as the 5 lines below
+		;str		r3, [sp]
+		;str		r2, [sp, #-4]
+		;str		r1, [sp, #-8]
+		;str		r0, [sp, #-12]
+		;sub		sp, sp, #16
+```
+
+
+
+从内存的最高位开始 push into stack, 从内存的最低位开始存 instructions.
+
+![image-20210531160549016](image/image-20210531160549016.png)
 
 
 
@@ -384,4 +469,14 @@ LDMFD sp!, {pc}
 
 
 
+
+
+
+
+
+### Tools-Chain
+
+----
+
+[Reference](https://www.rapidtables.com/code/linux/gcc/gcc-o.html)
 
