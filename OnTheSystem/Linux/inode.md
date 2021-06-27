@@ -103,6 +103,8 @@ ln -s 源文件名 目标文件名
 
 这是软链接与硬链接最大的不同：文件A指向文件B的文件名，而不是文件B的inode号码，文件B的inode”链接数”不会因此发生变化。
 
+This method also provide a way to *mount* folder to another folder.
+
 
 
 ### appendix

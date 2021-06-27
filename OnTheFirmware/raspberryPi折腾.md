@@ -39,4 +39,13 @@ $ sudo apt-clone clone /backup
 
 
 
+## Raspberry pi imager
+
+location: `~/.cache/Raspberry Pi/Imager`
+
+![image-20210618005933211](image/image-20210618005933211.png)
+
+This is a Ubuntu desktop version screen shot.
+
+Okay, by using the *raspberry pi imager*, it can automatically completely installed.
 

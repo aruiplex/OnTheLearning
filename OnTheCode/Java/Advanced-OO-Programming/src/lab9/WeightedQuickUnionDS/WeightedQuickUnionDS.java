@@ -5,9 +5,8 @@ public class WeightedQuickUnionDS {
     private int[] parent;
 
     /*
-     * Returns the parent of element p.
-     * If p is the root of a tree, returns the negative size
-     * of the tree for which p is the root.
+     * Returns the parent of element p. If p is the root of a tree, returns the
+     * negative size of the tree for which p is the root.
      */
     public int parent(int p) {
         return parent[p];
@@ -27,28 +26,23 @@ public class WeightedQuickUnionDS {
      ***************************
      */
 
-
     /*
      ***** HELPER METHODS START *****
      */
 
     // Add your own helper methods here
-	// INCLUDE your helper methods in your submission !
-	
-	
-	
+    // INCLUDE your helper methods in your submission !
 
     /*
      ***** HELPER METHODS END *****
      */
 
-
-    // LAB EXERCISE 9.3  CONSTRUCTOR
+    // LAB EXERCISE 9.3 CONSTRUCTOR
 
     /**
-     * Creates a Disjoint Sets data structure with n elements,
-     * 0 through n-1.
+     * Creates a Disjoint Sets data structure with n elements, 0 through n-1.
      * Initially, each element is in its own set.
+     * 
      * @param N the number of elements
      */
     public WeightedQuickUnionDS(int N) {
@@ -58,22 +52,23 @@ public class WeightedQuickUnionDS {
         }
     }
 
-
     // LAB EXERCISE 9.4 VALIDATE
 
     /**
      * Validates that p is a valid element/index.
+     * 
      * @throws IllegalArgumentException if p is not a valid index.
      */
     public void validate(int p) {
-        if (p >= parent.length || p < 0) throw new IllegalArgumentException();
+        if (p >= parent.length || p < 0)
+            throw new IllegalArgumentException();
     }
 
-
-    // EXERCISE 9.1  SIZE OF
+    // EXERCISE 9.1 SIZE OF
 
     /**
      * Returns the size of the set element p belongs to.
+     * 
      * @param p an element
      * @return the size of the set containing p
      */
@@ -81,35 +76,35 @@ public class WeightedQuickUnionDS {
         while (parent[p] >= 0) {
             p = parent[p];
         }
-		return -parent[p];
+        return -parent[p];
     }
 
-
-    // EXERCISE 9.2  IS CONNECTED
-
+    // EXERCISE 9.2 IS CONNECTED
 
     /**
      * Returns true iff elements p and q are connected.
+     * 
      * @param p an element
      * @param q the other element
-     * @return true if p and q are in the same set
-     *         false otherwise
+     * @return true if p and q are in the same set false otherwise
      * @throws IllegalArgumentException if p or q is not a valid index.
      */
     public boolean isConnected(int p, int q) {
         this.validate(p);
         this.validate(q);
-		while (parent[p] >= 0) p = parent[p];
-		while (parent[q] >= 0) q = parent[q];
-		return p == q;
+        while (parent[p] >= 0)
+            p = parent[p];
+        while (parent[q] >= 0)
+            q = parent[q];
+        return p == q;
     }
 
-
-    // EXERCISE 9.3  CONNECT
+    // EXERCISE 9.3 CONNECT
 
     /**
-     * Connects two elements p and q together,
-     * by combining the sets containing them.
+     * Connects two elements p and q together, by combining the sets containing
+     * them.
+     * 
      * @param p an element
      * @param q the other element
      * @throws IllegalArgumentException if p or q is not a valid index.
@@ -117,28 +112,30 @@ public class WeightedQuickUnionDS {
     public void connect(int p, int q) {
         this.validate(p);
         this.validate(q);
-        while (parent[p] >= 0) p = parent[p];
-        while (parent[q] >= 0) q = parent[q];
-		if (p == q) return;
-		// p's root <= q's: connect p's to q's
-		if (-parent[p] <= -parent[q]) {
-		    parent[q] += parent[p];
-		    parent[p] = q;
+        while (parent[p] >= 0)
+            p = parent[p];
+        while (parent[q] >= 0)
+            q = parent[q];
+        if (p == q)
+            return;
+        // p's root <= q's: connect p's to q's
+        if (-parent[p] <= -parent[q]) {
+            parent[q] += parent[p];
+            parent[p] = q;
         }
-		// p's root > q's, connect q's to p's
+        // p's root > q's, connect q's to p's
         else {
             parent[p] += parent[q];
             parent[q] = p;
         }
     }
 
-
     public static void main(String[] args) {
         WeightedQuickUnionDS ds = new WeightedQuickUnionDS(4);
         ds.connect(1, 0);
         ds.connect(3, 2);
-        ds.connect(3, 1);
+        // ds.connect(3, 1);
         ds.printParent();
+        System.out.println(ds.isConnected(3, 1));
     }
-
 }

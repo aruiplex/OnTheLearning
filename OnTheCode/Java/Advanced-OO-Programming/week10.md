@@ -51,5 +51,5 @@ There has **Operation** in **Type**.
 
 T: this type;
 
-t: other type.
+t: other type;
 

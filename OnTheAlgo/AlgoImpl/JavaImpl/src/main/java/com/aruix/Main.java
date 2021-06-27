@@ -1,14 +1,16 @@
 package com.aruix;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
-import com.aruix.impl.lab.Animal;
-import com.aruix.impl.lab.Dog;
 
 public class Main {
     public static boolean cmp(String str1, String str2) {
@@ -75,15 +77,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // System.out.println(cmpStr("abac", "baba"));
-        // input();
-        // char a = 'a';
-        // double ad = (double) a;
-        // System.out.println(ad);
-        Animal a = new Dog();
-        Dog d = new Dog();
-        a.cool(d);
-        ;
 
     }
 }

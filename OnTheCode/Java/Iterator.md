@@ -2,25 +2,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## Iterator
-
-
-
-
-
-
-
-
 
 
 
@@ -34,12 +16,6 @@ public Iterator<T> iterator() {
 
 }
 ```
-
-
-
-
-
-
 
 ## Example
 
