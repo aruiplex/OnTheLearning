@@ -10,3 +10,39 @@ conda config --set auto_activate_base false
 conda init
 ```
 
+
+
+to list all the existed env:
+
+```bash
+conda env list
+```
+
+
+
+activate env
+
+---
+
+```bash
+conda activate env_name
+```
+
+
+
+
+
+
+
+Choose env in vsode
+
+---
+
+In the vscode, the only thing to choose different env is choosing interpreter:
+
+![image-20210628030735679](../image/image-20210628030735679.png)
+
+
+
+
+
