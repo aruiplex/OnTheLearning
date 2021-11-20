@@ -31,3 +31,16 @@ for i in a:
 
 ```
 
+列出当前文件夹下的所有项，不管是文件夹还是文件。
+
+```python
+os.listdir()
+
+# output
+['All Users', 'aruix', 'Default', 'Default User', 'desktop.ini', 'Public']
+```
+
+
+
+
+

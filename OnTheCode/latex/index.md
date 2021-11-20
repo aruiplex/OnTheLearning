@@ -16,3 +16,14 @@ cov(x_1,x_2) &cov(x_1,x_1)\\
 cov(x_1,x_2) &cov(x_2,x_2)
 \end{bmatrix}
 $$
+
+$$
+\begin{equation}
+y =
+    \begin{cases}
+      0 & (b+w_1x_1+w_2x_2\leq 0)\\
+      1 & (b+w_1x_1+w_2x_2\gt 0)\\
+    \end{cases}       
+\end{equation}
+$$
+

@@ -1,5 +1,7 @@
 # Permission of linux
 
+[toc]
+
 use command `ls -l` to check the permission of file or dir.
 
 ```bash
@@ -19,20 +21,11 @@ The first char represent:
 - 若是 **l** 则表示为链接文档(link file)；
 - 若是 **b** 则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；
 - 若是 **c** 则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)。
+- s是socket文件。
 
 
 
-
-
-
-
-
-
-
-
-
-
-### chmod
+### `chmod`
 
 change mode of file.
 
@@ -43,13 +36,19 @@ change mode of file.
 |         |   o   |  =: set   |     x      |             |
 |         |   a   |           |            |             |
 
-
-
 For directory, `-R` is recursive option.
 
+For example:
+
+```bash
+chmod -R +rwx minio_db/
+```
 
 
-### chown
+
+
+
+### `chown`
 
 change owner ship.
 
@@ -60,9 +59,17 @@ chown [-R] <owner name>：<owner group name> <file name>
 
 Which means `chgrp` is not useful.
 
+For example, this command used to change all permission of items in the `minio_db` folder to user *aruix* and group *aruix*.
+
+```bash
+sudo chown aruix:aruix -R ./minio_db/
+```
 
 
-### chgrp
+
+
+
+### `chgrp`
 
 change group of file.
 

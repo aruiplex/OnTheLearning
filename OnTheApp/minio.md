@@ -15,10 +15,10 @@
 ```bash
 export MINIO_ROOT_USER=minio
 export MINIO_ROOT_PASSWORD=minio13 
-minio server /data
+nohup ./minio server ./minio_data --console-address ":9001"  &> minio.out &
 ```
 
-
+> 最新版的需要改一下console-address来让管理界面监听在一个端口。
 
 
 
